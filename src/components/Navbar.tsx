@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const navLinks = [
   { name: 'Start', href: '#hero' },
@@ -55,9 +56,11 @@ export const Navbar = () => {
               {link.name}
             </a>
           ))}
-          <Button variant="hero" size="sm">
-            Konto
-          </Button>
+          <Link to="/auth">
+            <Button variant="hero" size="sm">
+              Konto
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -83,9 +86,11 @@ export const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button variant="hero" className="mt-4">
-              Konto
-            </Button>
+            <Link to="/auth" onClick={() => setIsMobileMenuOpen(false)}>
+              <Button variant="hero" className="mt-4 w-full">
+                Konto
+              </Button>
+            </Link>
           </div>
         </div>
       )}
